@@ -1,0 +1,844 @@
+[
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$1000000$ZTQKzDLAVDJpVrWFfzHYuE$mhNXBpzOlk8YoeN3Epo8sONycAk4hoVR0RWDhFOjHbo=",
+            "last_login": null,
+            "is_superuser": true,
+            "username": "admin",
+            "first_name": "",
+            "last_name": "",
+            "email": "",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2026-01-12T16:38:23.367Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "polls.poll",
+        "pk": 1,
+        "fields": {
+            "title": "Customer Satisfaction Survey",
+            "description": "Help us improve our services by sharing your feedback",
+            "pub_date": "2024-01-15"
+        }
+    },
+    {
+        "model": "polls.poll",
+        "pk": 2,
+        "fields": {
+            "title": "Employee Engagement Survey",
+            "description": "Your opinion matters! Let us know how we can make the workplace better",
+            "pub_date": "2024-01-20"
+        }
+    },
+    {
+        "model": "polls.poll",
+        "pk": 3,
+        "fields": {
+            "title": "Product Development Priorities 2026",
+            "description": "Help shape our product roadmap for next year",
+            "pub_date": "2025-12-01"
+        }
+    },
+    {
+        "model": "polls.poll",
+        "pk": 4,
+        "fields": {
+            "title": "Annual Tech Conference Feedback",
+            "description": "Share your thoughts about this year's conference",
+            "pub_date": "2024-11-05"
+        }
+    },
+    {
+        "model": "polls.poll",
+        "pk": 5,
+        "fields": {
+            "title": "Future Workplace Vision 2030",
+            "description": "This poll will open in the future to gather your ideas about the workplace of tomorrow",
+            "pub_date": "2028-06-15"
+        }
+    },
+    {
+        "model": "polls.question",
+        "pk": 1,
+        "fields": {
+            "text": "How satisfied are you with our product?",
+            "order": 1,
+            "poll": 1
+        }
+    },
+    {
+        "model": "polls.question",
+        "pk": 2,
+        "fields": {
+            "text": "How likely are you to recommend us to a friend?",
+            "order": 2,
+            "poll": 1
+        }
+    },
+    {
+        "model": "polls.question",
+        "pk": 3,
+        "fields": {
+            "text": "How would you rate your work-life balance?",
+            "order": 1,
+            "poll": 2
+        }
+    },
+    {
+        "model": "polls.question",
+        "pk": 4,
+        "fields": {
+            "text": "Do you feel valued at work?",
+            "order": 2,
+            "poll": 2
+        }
+    },
+    {
+        "model": "polls.question",
+        "pk": 5,
+        "fields": {
+            "text": "Which feature should we prioritize?",
+            "order": 1,
+            "poll": 3
+        }
+    },
+    {
+        "model": "polls.question",
+        "pk": 6,
+        "fields": {
+            "text": "What platform integration is most important?",
+            "order": 2,
+            "poll": 3
+        }
+    },
+    {
+        "model": "polls.question",
+        "pk": 7,
+        "fields": {
+            "text": "How would you rate the conference venue?",
+            "order": 1,
+            "poll": 4
+        }
+    },
+    {
+        "model": "polls.question",
+        "pk": 8,
+        "fields": {
+            "text": "Which session was most valuable?",
+            "order": 2,
+            "poll": 4
+        }
+    },
+    {
+        "model": "polls.question",
+        "pk": 9,
+        "fields": {
+            "text": "Would you attend again next year?",
+            "order": 3,
+            "poll": 4
+        }
+    },
+    {
+        "model": "polls.question",
+        "pk": 10,
+        "fields": {
+            "text": "What work arrangement do you prefer?",
+            "order": 1,
+            "poll": 5
+        }
+    },
+    {
+        "model": "polls.question",
+        "pk": 11,
+        "fields": {
+            "text": "Which technology will be most important in the future workplace?",
+            "order": 2,
+            "poll": 5
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 1,
+        "fields": {
+            "text": "Very Satisfied",
+            "question": 1
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 2,
+        "fields": {
+            "text": "Satisfied",
+            "question": 1
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 3,
+        "fields": {
+            "text": "Neutral",
+            "question": 1
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 4,
+        "fields": {
+            "text": "Dissatisfied",
+            "question": 1
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 5,
+        "fields": {
+            "text": "Very Dissatisfied",
+            "question": 1
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 6,
+        "fields": {
+            "text": "Very Likely",
+            "question": 2
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 7,
+        "fields": {
+            "text": "Likely",
+            "question": 2
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 8,
+        "fields": {
+            "text": "Unlikely",
+            "question": 2
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 9,
+        "fields": {
+            "text": "Very Unlikely",
+            "question": 2
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 10,
+        "fields": {
+            "text": "Excellent",
+            "question": 3
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 11,
+        "fields": {
+            "text": "Good",
+            "question": 3
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 12,
+        "fields": {
+            "text": "Fair",
+            "question": 3
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 13,
+        "fields": {
+            "text": "Poor",
+            "question": 3
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 14,
+        "fields": {
+            "text": "Yes, definitely",
+            "question": 4
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 15,
+        "fields": {
+            "text": "Somewhat",
+            "question": 4
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 16,
+        "fields": {
+            "text": "Not really",
+            "question": 4
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 17,
+        "fields": {
+            "text": "Not at all",
+            "question": 4
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 18,
+        "fields": {
+            "text": "AI/ML Capabilities",
+            "question": 5
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 19,
+        "fields": {
+            "text": "Mobile App Improvements",
+            "question": 5
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 20,
+        "fields": {
+            "text": "Better Analytics Dashboard",
+            "question": 5
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 21,
+        "fields": {
+            "text": "Enhanced Security Features",
+            "question": 5
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 22,
+        "fields": {
+            "text": "Slack",
+            "question": 6
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 23,
+        "fields": {
+            "text": "Microsoft Teams",
+            "question": 6
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 24,
+        "fields": {
+            "text": "Google Workspace",
+            "question": 6
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 25,
+        "fields": {
+            "text": "Salesforce",
+            "question": 6
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 26,
+        "fields": {
+            "text": "Excellent",
+            "question": 7
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 27,
+        "fields": {
+            "text": "Good",
+            "question": 7
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 28,
+        "fields": {
+            "text": "Average",
+            "question": 7
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 29,
+        "fields": {
+            "text": "Below Average",
+            "question": 7
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 30,
+        "fields": {
+            "text": "Keynote Presentations",
+            "question": 8
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 31,
+        "fields": {
+            "text": "Technical Workshops",
+            "question": 8
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 32,
+        "fields": {
+            "text": "Networking Sessions",
+            "question": 8
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 33,
+        "fields": {
+            "text": "Panel Discussions",
+            "question": 8
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 34,
+        "fields": {
+            "text": "Definitely yes",
+            "question": 9
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 35,
+        "fields": {
+            "text": "Probably yes",
+            "question": 9
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 36,
+        "fields": {
+            "text": "Maybe",
+            "question": 9
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 37,
+        "fields": {
+            "text": "Probably not",
+            "question": 9
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 38,
+        "fields": {
+            "text": "Definitely not",
+            "question": 9
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 39,
+        "fields": {
+            "text": "Fully Remote",
+            "question": 10
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 40,
+        "fields": {
+            "text": "Hybrid (2-3 days office)",
+            "question": 10
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 41,
+        "fields": {
+            "text": "Mostly In-Office",
+            "question": 10
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 42,
+        "fields": {
+            "text": "Flexible / My Choice",
+            "question": 10
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 43,
+        "fields": {
+            "text": "Virtual Reality Collaboration",
+            "question": 11
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 44,
+        "fields": {
+            "text": "AI Assistants",
+            "question": 11
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 45,
+        "fields": {
+            "text": "Advanced Automation",
+            "question": 11
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 46,
+        "fields": {
+            "text": "Brain-Computer Interfaces",
+            "question": 11
+        }
+    },
+    {
+        "model": "polls.entry",
+        "pk": 1,
+        "fields": {
+            "poll": 1,
+            "date": "2024-01-16T14:30:00Z"
+        }
+    },
+    {
+        "model": "polls.entry",
+        "pk": 2,
+        "fields": {
+            "poll": 1,
+            "date": "2024-01-17T09:15:00Z"
+        }
+    },
+    {
+        "model": "polls.entry",
+        "pk": 3,
+        "fields": {
+            "poll": 2,
+            "date": "2024-01-21T11:45:00Z"
+        }
+    },
+    {
+        "model": "polls.entry",
+        "pk": 4,
+        "fields": {
+            "poll": 1,
+            "date": "2024-01-18T16:20:00Z"
+        }
+    },
+    {
+        "model": "polls.entry",
+        "pk": 5,
+        "fields": {
+            "poll": 2,
+            "date": "2024-01-22T08:30:00Z"
+        }
+    },
+    {
+        "model": "polls.entry",
+        "pk": 6,
+        "fields": {
+            "poll": 2,
+            "date": "2024-01-23T13:10:00Z"
+        }
+    },
+    {
+        "model": "polls.entry",
+        "pk": 7,
+        "fields": {
+            "poll": 3,
+            "date": "2025-12-02T10:00:00Z"
+        }
+    },
+    {
+        "model": "polls.entry",
+        "pk": 8,
+        "fields": {
+            "poll": 3,
+            "date": "2025-12-03T14:25:00Z"
+        }
+    },
+    {
+        "model": "polls.entry",
+        "pk": 9,
+        "fields": {
+            "poll": 4,
+            "date": "2024-11-06T09:30:00Z"
+        }
+    },
+    {
+        "model": "polls.entry",
+        "pk": 10,
+        "fields": {
+            "poll": 4,
+            "date": "2024-11-06T15:45:00Z"
+        }
+    },
+    {
+        "model": "polls.entry",
+        "pk": 11,
+        "fields": {
+            "poll": 4,
+            "date": "2024-11-07T11:20:00Z"
+        }
+    },
+    {
+        "model": "polls.entry",
+        "pk": 12,
+        "fields": {
+            "poll": 1,
+            "date": "2024-01-19T10:05:00Z"
+        }
+    },
+    {
+        "model": "polls.answer",
+        "pk": 1,
+        "fields": {
+            "entry": 1,
+            "choice": 2
+        }
+    },
+    {
+        "model": "polls.answer",
+        "pk": 2,
+        "fields": {
+            "entry": 1,
+            "choice": 7
+        }
+    },
+    {
+        "model": "polls.answer",
+        "pk": 3,
+        "fields": {
+            "entry": 2,
+            "choice": 1
+        }
+    },
+    {
+        "model": "polls.answer",
+        "pk": 4,
+        "fields": {
+            "entry": 2,
+            "choice": 6
+        }
+    },
+    {
+        "model": "polls.answer",
+        "pk": 5,
+        "fields": {
+            "entry": 3,
+            "choice": 11
+        }
+    },
+    {
+        "model": "polls.answer",
+        "pk": 6,
+        "fields": {
+            "entry": 3,
+            "choice": 14
+        }
+    },
+    {
+        "model": "polls.answer",
+        "pk": 7,
+        "fields": {
+            "entry": 4,
+            "choice": 3
+        }
+    },
+    {
+        "model": "polls.answer",
+        "pk": 8,
+        "fields": {
+            "entry": 4,
+            "choice": 7
+        }
+    },
+    {
+        "model": "polls.answer",
+        "pk": 9,
+        "fields": {
+            "entry": 5,
+            "choice": 10
+        }
+    },
+    {
+        "model": "polls.answer",
+        "pk": 10,
+        "fields": {
+            "entry": 5,
+            "choice": 15
+        }
+    },
+    {
+        "model": "polls.answer",
+        "pk": 11,
+        "fields": {
+            "entry": 6,
+            "choice": 12
+        }
+    },
+    {
+        "model": "polls.answer",
+        "pk": 12,
+        "fields": {
+            "entry": 6,
+            "choice": 16
+        }
+    },
+    {
+        "model": "polls.answer",
+        "pk": 13,
+        "fields": {
+            "entry": 7,
+            "choice": 18
+        }
+    },
+    {
+        "model": "polls.answer",
+        "pk": 14,
+        "fields": {
+            "entry": 7,
+            "choice": 22
+        }
+    },
+    {
+        "model": "polls.answer",
+        "pk": 15,
+        "fields": {
+            "entry": 8,
+            "choice": 20
+        }
+    },
+    {
+        "model": "polls.answer",
+        "pk": 16,
+        "fields": {
+            "entry": 8,
+            "choice": 24
+        }
+    },
+    {
+        "model": "polls.answer",
+        "pk": 17,
+        "fields": {
+            "entry": 9,
+            "choice": 27
+        }
+    },
+    {
+        "model": "polls.answer",
+        "pk": 18,
+        "fields": {
+            "entry": 9,
+            "choice": 31
+        }
+    },
+    {
+        "model": "polls.answer",
+        "pk": 19,
+        "fields": {
+            "entry": 9,
+            "choice": 35
+        }
+    },
+    {
+        "model": "polls.answer",
+        "pk": 20,
+        "fields": {
+            "entry": 10,
+            "choice": 26
+        }
+    },
+    {
+        "model": "polls.answer",
+        "pk": 21,
+        "fields": {
+            "entry": 10,
+            "choice": 30
+        }
+    },
+    {
+        "model": "polls.answer",
+        "pk": 22,
+        "fields": {
+            "entry": 10,
+            "choice": 34
+        }
+    },
+    {
+        "model": "polls.answer",
+        "pk": 23,
+        "fields": {
+            "entry": 11,
+            "choice": 28
+        }
+    },
+    {
+        "model": "polls.answer",
+        "pk": 24,
+        "fields": {
+            "entry": 11,
+            "choice": 32
+        }
+    },
+    {
+        "model": "polls.answer",
+        "pk": 25,
+        "fields": {
+            "entry": 11,
+            "choice": 36
+        }
+    },
+    {
+        "model": "polls.answer",
+        "pk": 26,
+        "fields": {
+            "entry": 12,
+            "choice": 1
+        }
+    },
+    {
+        "model": "polls.answer",
+        "pk": 27,
+        "fields": {
+            "entry": 12,
+            "choice": 6
+        }
+    }
+]
