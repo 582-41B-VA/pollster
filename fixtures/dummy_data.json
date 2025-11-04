@@ -1,0 +1,380 @@
+[
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$1000000$ZTQKzDLAVDJpVrWFfzHYuE$mhNXBpzOlk8YoeN3Epo8sONycAk4hoVR0RWDhFOjHbo=",
+            "last_login": null,
+            "is_superuser": true,
+            "username": "admin",
+            "first_name": "",
+            "last_name": "",
+            "email": "",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2026-01-12T16:38:23.367Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "polls.poll",
+        "pk": 1,
+        "fields": {
+            "title": "Customer Satisfaction Survey 2026",
+            "description": "Help us improve our services by sharing your feedback on your recent experience with our company.",
+            "pub_date": "2100-01-10T09:00:00Z"
+        }
+    },
+    {
+        "model": "polls.poll",
+        "pk": 2,
+        "fields": {
+            "title": "Employee Wellness Check-in",
+            "description": "Annual survey to understand employee wellbeing and workplace satisfaction.",
+            "pub_date": "2026-01-08T14:30:00Z"
+        }
+    },
+    {
+        "model": "polls.poll",
+        "pk": 3,
+        "fields": {
+            "title": "Product Feature Preferences",
+            "description": "",
+            "pub_date": "2026-01-05T11:15:00Z"
+        }
+    },
+    {
+        "model": "polls.question",
+        "pk": 1,
+        "fields": {
+            "text": "How would you rate your overall experience?",
+            "order": 1,
+            "poll": 1
+        }
+    },
+    {
+        "model": "polls.question",
+        "pk": 2,
+        "fields": {
+            "text": "How likely are you to recommend us to a friend?",
+            "order": 2,
+            "poll": 1
+        }
+    },
+    {
+        "model": "polls.question",
+        "pk": 3,
+        "fields": {
+            "text": "Which aspect needs the most improvement?",
+            "order": 3,
+            "poll": 1
+        }
+    },
+    {
+        "model": "polls.question",
+        "pk": 4,
+        "fields": {
+            "text": "How satisfied are you with your work-life balance?",
+            "order": 1,
+            "poll": 2
+        }
+    },
+    {
+        "model": "polls.question",
+        "pk": 5,
+        "fields": {
+            "text": "Do you feel supported by your manager?",
+            "order": 2,
+            "poll": 2
+        }
+    },
+    {
+        "model": "polls.question",
+        "pk": 6,
+        "fields": {
+            "text": "What feature would you like to see next?",
+            "order": 1,
+            "poll": 3
+        }
+    },
+    {
+        "model": "polls.question",
+        "pk": 7,
+        "fields": {
+            "text": "How often do you use our mobile app?",
+            "order": 2,
+            "poll": 3
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 1,
+        "fields": {
+            "text": "Excellent",
+            "question": 1,
+            "votes": 45
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 2,
+        "fields": {
+            "text": "Good",
+            "question": 1,
+            "votes": 32
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 3,
+        "fields": {
+            "text": "Average",
+            "question": 1,
+            "votes": 18
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 4,
+        "fields": {
+            "text": "Poor",
+            "question": 1,
+            "votes": 5
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 5,
+        "fields": {
+            "text": "Very likely",
+            "question": 2,
+            "votes": 38
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 6,
+        "fields": {
+            "text": "Likely",
+            "question": 2,
+            "votes": 29
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 7,
+        "fields": {
+            "text": "Neutral",
+            "question": 2,
+            "votes": 21
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 8,
+        "fields": {
+            "text": "Unlikely",
+            "question": 2,
+            "votes": 8
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 9,
+        "fields": {
+            "text": "Very unlikely",
+            "question": 2,
+            "votes": 4
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 10,
+        "fields": {
+            "text": "Customer service",
+            "question": 3,
+            "votes": 28
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 11,
+        "fields": {
+            "text": "Product quality",
+            "question": 3,
+            "votes": 15
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 12,
+        "fields": {
+            "text": "Delivery speed",
+            "question": 3,
+            "votes": 34
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 13,
+        "fields": {
+            "text": "Website usability",
+            "question": 3,
+            "votes": 23
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 14,
+        "fields": {
+            "text": "Very satisfied",
+            "question": 4,
+            "votes": 22
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 15,
+        "fields": {
+            "text": "Satisfied",
+            "question": 4,
+            "votes": 31
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 16,
+        "fields": {
+            "text": "Neutral",
+            "question": 4,
+            "votes": 19
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 17,
+        "fields": {
+            "text": "Dissatisfied",
+            "question": 4,
+            "votes": 12
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 18,
+        "fields": {
+            "text": "Yes, always",
+            "question": 5,
+            "votes": 41
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 19,
+        "fields": {
+            "text": "Most of the time",
+            "question": 5,
+            "votes": 27
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 20,
+        "fields": {
+            "text": "Sometimes",
+            "question": 5,
+            "votes": 14
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 21,
+        "fields": {
+            "text": "Rarely",
+            "question": 5,
+            "votes": 2
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 22,
+        "fields": {
+            "text": "Dark mode",
+            "question": 6,
+            "votes": 56
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 23,
+        "fields": {
+            "text": "Advanced analytics",
+            "question": 6,
+            "votes": 42
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 24,
+        "fields": {
+            "text": "Social sharing",
+            "question": 6,
+            "votes": 31
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 25,
+        "fields": {
+            "text": "Offline mode",
+            "question": 6,
+            "votes": 38
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 26,
+        "fields": {
+            "text": "Daily",
+            "question": 7,
+            "votes": 47
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 27,
+        "fields": {
+            "text": "Weekly",
+            "question": 7,
+            "votes": 35
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 28,
+        "fields": {
+            "text": "Monthly",
+            "question": 7,
+            "votes": 19
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 29,
+        "fields": {
+            "text": "Rarely",
+            "question": 7,
+            "votes": 11
+        }
+    },
+    {
+        "model": "polls.choice",
+        "pk": 30,
+        "fields": {
+            "text": "Never",
+            "question": 7,
+            "votes": 5
+        }
+    }
+]
