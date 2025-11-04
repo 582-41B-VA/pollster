@@ -1,7 +1,17 @@
+from typing import Self
+
 from django.db import models
+from django.utils import timezone
+
+
+class PollQuerySet(models.QuerySet):
+    def published(self) -> Self:
+        return self.filter(pub_date__lt=timezone.now())
 
 
 class Poll(models.Model):
+    objects = PollQuerySet.as_manager()
+
     title = models.CharField()
     description = models.TextField(blank=True)
     pub_date = models.DateField("publication date")
@@ -25,6 +35,10 @@ class Question(models.Model):
 class Choice(models.Model):
     text = models.CharField()
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
+
+    @property
+    def vote_count(self) -> int:
+        return self.answer_set.count()
 
     def __str__(self):
         return self.text
