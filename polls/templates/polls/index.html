@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Polls{% endblock %}
+{% block breadcrumbs %}
+    <li><a href="{% url 'home' %}">Home</a></li>
+{% endblock %}
+{% block main %}
+    <h1>Polls</h1>
+    <ul>
+        {% for poll in polls %}
+            <li>
+                <a href="{% url 'polls:entry' poll.id %}">
+                    {{ poll.title }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock main %}

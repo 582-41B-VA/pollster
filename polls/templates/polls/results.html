@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Results: {{ poll }}{% endblock %}
+{% block breadcrumbs %}
+    <li><a href="{% url 'polls:index' %}">Polls</a></li>
+    <li><a href="{% url 'polls:entry' poll.id %}">{{ poll.title }}</a></li>
+    <li><a href="{% url 'polls:results' poll.id %}">Results</a></li>
+{% endblock %}
+{% block main %}
+    <h1>{{ poll }}<span>Results</span></h1>
+    <ul>
+        {% for question in poll.question_set.all %}
+            <li class="question">
+                {{ question.text }}
+                <ul class="choice-list">
+                    {% for choice in question.choice_set.all %}
+                        <li>
+                            <span class="votes">{{ choice.vote_count }}</span>
+                            <span>{{ choice.text }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock main %}

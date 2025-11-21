@@ -1,0 +1,10 @@
+body > header > nav {
+    display: flex;
+    gap: 1rem;
+}
+
+#logo {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+}
