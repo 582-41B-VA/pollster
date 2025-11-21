@@ -8,9 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = (
-    "django-insecure-6dbyp9*_d&0f6(d(ox30u3cd(1sxtp&b!p%ef2df%pqmi&uq=*"
-)
+SECRET_KEY = "django-insecure-6dbyp9*_d&0f6(d(ox30u3cd(1sxtp&b!p%ef2df%pqmi&uq=*"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -42,10 +40,13 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "pollster.urls"
 
+PROJECT_PACKAGE = Path(__file__).resolve().parent
+PROJECT_TEMPLATES_PATH = str(PROJECT_PACKAGE.joinpath("templates"))
+
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [PROJECT_TEMPLATES_PATH],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -106,6 +107,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = "static/"
+
+STATICFILES_DIRS = [
+    PROJECT_PACKAGE / "static",
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

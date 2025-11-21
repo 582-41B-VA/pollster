@@ -5,41 +5,73 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Poll',
+            name="Poll",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField()),
-                ('description', models.TextField(blank=True)),
-                ('pub_date', models.DateTimeField(verbose_name='publication date')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField()),
+                ("description", models.TextField(blank=True)),
+                ("pub_date", models.DateTimeField(verbose_name="publication date")),
             ],
         ),
         migrations.CreateModel(
-            name='Question',
+            name="Question",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('text', models.CharField()),
-                ('order', models.PositiveIntegerField()),
-                ('poll', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='polls.poll')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("text", models.CharField()),
+                ("order", models.PositiveIntegerField()),
+                (
+                    "poll",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="polls.poll"
+                    ),
+                ),
             ],
             options={
-                'ordering': ['order', 'text'],
+                "ordering": ["order", "text"],
             },
         ),
         migrations.CreateModel(
-            name='Choice',
+            name="Choice",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('text', models.CharField()),
-                ('votes', models.PositiveIntegerField(default=0)),
-                ('question', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='polls.question')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("text", models.CharField()),
+                ("votes", models.PositiveIntegerField(default=0)),
+                (
+                    "question",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="polls.question"
+                    ),
+                ),
             ],
         ),
     ]
