@@ -1,14 +1,23 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+from .forms import IndexForm
 from .models import Poll
 
 
 def index(request):
     """List all polls."""
-    return render(
-        request, "polls/index.html", {"polls": Poll.objects.published}
+    form = IndexForm(request.GET)
+    if not form.is_valid():
+        form = IndexForm()
+    default_sort_order = IndexForm.SORT_ORDERS[0][0]
+    sort_order = form.cleaned_data["sort_order"] or default_sort_order
+    polls = (
+        Poll.objects.published()
+        .search(form.cleaned_data["search"])
+        .order_by(sort_order)
     )
+    return render(request, "polls/index.html", {"polls": polls, "form": form})
 
 
 def entry(request, poll_id: int):

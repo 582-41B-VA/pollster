@@ -5,6 +5,9 @@
 {% endblock %}
 {% block main %}
     <h1>Polls</h1>
+    <form id="index-form">
+        {{ form }} <button>Apply</button>
+    </form>
     <ul>
         {% for poll in polls %}
             <li>

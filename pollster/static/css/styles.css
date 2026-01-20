@@ -103,3 +103,49 @@ main > header {
     color: dimgray;
     margin: 0 0.25rem;
 }
+
+#index-form {
+    display: flex;
+    font-size: 0.85rem;
+    gap: 0.5rem;
+}
+
+#index-form label {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    gap: 0.25rem;
+}
+
+#index-form label span {
+    color: dimgray;
+    padding-top: 0.15em;
+}
+
+#index-form label:has([name="search"]) {
+    width: 100%;
+}
+
+#index-form input[name="search"] {
+    width: 100%;
+}
+
+#index-form input, #index-form select {
+    font-family: inherit;
+    font-size: inherit;
+    appearance: none;
+    border-radius: 0;
+    border: 1px solid silver;
+    padding: 0.25rem 0.5rem 0.15rem 0.25rem;
+    background: whitesmoke;
+}
+
+#index-form button {
+    padding: 0.25rem 0.5rem 0.15rem 0.5rem;
+    margin-left: 0.5rem;
+    font-size: 0.75rem;
+    background: black;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+}
