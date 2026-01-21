@@ -1,8 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-
+from django.utils import timezone
 from .forms import IndexForm
-from .models import Poll
+from . import models
 
 
 def index(request):
@@ -13,7 +12,7 @@ def index(request):
     default_sort_order = IndexForm.SORT_ORDERS[0][0]
     sort_order = form.cleaned_data["sort_order"] or default_sort_order
     polls = (
-        Poll.objects.published()
+        models.Poll.objects.published()
         .search(form.cleaned_data["search"])
         .order_by(sort_order)
     )
@@ -22,14 +21,24 @@ def index(request):
 
 def entry(request, poll_id: int):
     """Show a form to respond to a poll."""
-    poll = Poll.objects.get(pk=poll_id)
-    questions = poll.question_set.all()
-    body = f"{poll.title}\n\n"
-    for question in questions:
-        body += "\t" + question.text + "\n\n"
-        choices = question.choice_set.all()
-        body += "\n".join(f"\t\t{choice.text}" for choice in choices) + "\n\n"
-    return HttpResponse(body, content_type="text/plain")
+    poll = models.Poll.objects.get(pk=poll_id)
+    return render(request, "polls/entry.html", {"poll": poll})
+
+
+def entry_submit(request, poll_id: int):
+    form_data = request.POST
+
+    poll = models.Poll.objects.get(pk=poll_id)
+
+    entry = models.Entry(poll=poll, date=timezone.now())
+    entry.save()
+
+    for question in poll.question_set.all():
+        # question and choice ids in form data are strings
+        selected_choice_id = int(form_data[str(question.id)])
+        selected_choice = models.Choice.objects.get(pk=selected_choice_id)
+        answer = models.Answer(entry=entry, choice=selected_choice)
+        answer.save()
 
 
 def results(request, poll_id: int):

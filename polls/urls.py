@@ -7,5 +7,6 @@ app_name = "polls"
 urlpatterns = [
     path("", views.index, name="index"),
     path("<int:poll_id>/", views.entry, name="entry"),
+    path("<int:poll_id>/submit/", views.entry_submit, name="entry_submit"),
     path("<int:poll_id>/results/", views.results, name="results"),
 ]
