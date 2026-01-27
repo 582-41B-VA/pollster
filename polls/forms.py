@@ -1,4 +1,5 @@
 from django import forms
+from . import models
 
 
 class IndexForm(forms.Form):
@@ -15,3 +16,9 @@ class IndexForm(forms.Form):
     sort_order = forms.ChoiceField(
         label="Sort", required=False, choices=SORT_ORDERS
     )
+
+
+class PollForm(forms.ModelForm):
+    class Meta:
+        model = models.Poll
+        fields = ["title", "description", "pub_date"]
