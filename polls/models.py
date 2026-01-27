@@ -8,10 +8,10 @@ class PollQuerySet(models.QuerySet):
     def published(self) -> Self:
         return self.filter(pub_date__lt=timezone.now())
 
-
-
     def search(self, query: str) -> Self:
         return self.filter(title__icontains=query)
+
+
 class Poll(models.Model):
     objects = PollQuerySet.as_manager()
 

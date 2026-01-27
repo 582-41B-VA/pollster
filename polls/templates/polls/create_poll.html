@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Create poll{% endblock %}
+{% block breadcrumbs %}
+    <li><a href="{% url 'polls:index' %}">Polls</a></li>
+    <li><a href="{% url 'polls:create_poll' %}">Create poll</a></li>
+{% endblock %}
+{% block main %}
+    <h1>Create a poll</h1>
+    <form method="post" action="{% url 'polls:create_poll_submit' %}">
+        {% csrf_token %}
+        {{ form }}
+        <button>Submit</button>
+    </form>
+{% endblock main %}

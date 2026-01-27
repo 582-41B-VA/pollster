@@ -4,25 +4,36 @@
     <li><a href="{% url 'polls:index' %}">Polls</a></li>
     <li><a href="{% url 'polls:entry' poll.id %}">{{ poll.title }}</a></li>
 {% endblock %}
+{% block main_nav %}
+    <li><a href="{% url 'polls:results' poll.id %}">Results</a></li>
+    <li><a href="{% url 'polls:edit_poll' poll.id %}">Edit</a></li>
+    <li><a href="{% url 'polls:delete_poll' poll.id %}">Delete</a></li>
+{% endblock %}
 {% block main %}
-    <h1>{{ poll }}</h1>
-    <form method="post" action="{% url 'polls:entry_submit' poll.id %}">
+    <h1>{{ poll }}<span>Answer poll</h1>
+    <form
+        method="post"
+        action="{% url 'polls:entry_submit' poll.id %}"
+        class="entry"
+    >
         {% csrf_token %}
         {% for question in poll.question_set.all %}
-            <fieldset>
-                <legend><h2>{{ question.text }}</h2></legend>
-                {% for choice in question.choice_set.all %}
-                    <label>
-                        {{ choice.text }}
-                        <input
-                            type="radio"
-                            name="{{ question.id }}"
-                            value="{{ choice.id }}"
-                            required
-                        />
-                    </label>
-                {% endfor %}
-            </fieldset>
+            <div>
+                <fieldset>
+                    <legend class="question">{{ question.text }}</legend>
+                    {% for choice in question.choice_set.all %}
+                        <label class="choice">
+                            <input
+                                type="radio"
+                                name="{{ question.id }}"
+                                value="{{ choice.id }}"
+                                required
+                            />
+                            <span>{{ choice.text }}</span>
+                        </label>
+                    {% endfor %}
+                </fieldset>
+            </div>
         {% endfor %}
         <button>Submit</button>
     </form>

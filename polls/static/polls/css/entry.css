@@ -1,0 +1,45 @@
+.entry {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: start;
+}
+
+.entry label {
+    display: grid;
+    grid-template-columns: min-content auto;
+    align-items: center;
+    column-gap: 0.5rem;
+}
+
+.choice {
+    margin-left: 1rem;
+}
+
+.entry input[type="radio"] {
+    appearance: none;
+    margin: 0;
+}
+
+.entry input[type="radio"]::before {
+    display: flex;
+    font-family: "ABC Diatype Rounded";
+    font-variation-settings: "MONO" 1;
+    font-size: 1.5rem;
+    font-weight: 350;
+    content: "";
+    color: darkgray;
+}
+
+.entry label:hover input[type="radio"]::before {
+    content: "";
+}
+
+.entry input[type="radio"]:checked::before {
+    content: "" !important;
+    color: black;
+}
+
+.entry button {
+    margin-top: 1rem;
+}

@@ -5,8 +5,89 @@ from . import views
 app_name = "polls"
 
 urlpatterns = [
-    path("", views.index, name="index"),
-    path("<int:poll_id>/", views.entry, name="entry"),
-    path("<int:poll_id>/submit/", views.entry_submit, name="entry_submit"),
-    path("<int:poll_id>/results/", views.results, name="results"),
+    path(
+        "",
+        views.index,
+        name="index",
+    ),
+    path(
+        "create/",
+        views.create_poll,
+        name="create_poll",
+    ),
+    path(
+        "create/submit/",
+        views.create_poll_submit,
+        name="create_poll_submit",
+    ),
+    path(
+        "<int:poll_id>/edit/",
+        views.edit_poll,
+        name="edit_poll",
+    ),
+    path(
+        "<int:poll_id>/edit/submit/",
+        views.edit_poll_submit,
+        name="edit_poll_submit",
+    ),
+    path(
+        "<int:poll_id>/delete/",
+        views.delete_poll,
+        name="delete_poll",
+    ),
+    path(
+        "<int:poll_id>/questions/",
+        views.questions,
+        name="questions",
+    ),
+    path(
+        "<int:poll_id>/questions/create/",
+        views.create_question,
+        name="create_question",
+    ),
+    path(
+        "<int:poll_id>/questions/create/submit/",
+        views.create_question_submit,
+        name="create_question_submit",
+    ),
+    path(
+        "<int:poll_id>/questions/create/add-choice/",
+        views.create_question_add_choice,
+        name="create_question_add_choice",
+    ),
+    path(
+        "<int:poll_id>/questions/<int:question_id>/edit/",
+        views.edit_question,
+        name="edit_question",
+    ),
+    path(
+        "<int:poll_id>/questions/<int:question_id>/edit/submit/",
+        views.edit_question_submit,
+        name="edit_question_submit",
+    ),
+    path(
+        "<int:poll_id>/questions/<int:question_id>/edit/add-choice/",
+        views.edit_question_add_choice,
+        name="edit_question_add_choice",
+    ),
+    path(
+        "<int:poll_id>/questions/<int:question_id>/delete/",
+        views.delete_question,
+        name="delete_question",
+    ),
+    path(
+        "<int:poll_id>/",
+        views.entry,
+        name="entry",
+    ),
+    path(
+        "<int:poll_id>/submit/",
+        views.entry_submit,
+        name="entry_submit",
+    ),
+    path(
+        "<int:poll_id>/results/",
+        views.results,
+        name="results",
+    ),
 ]

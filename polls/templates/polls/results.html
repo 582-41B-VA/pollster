@@ -7,7 +7,7 @@
 {% endblock %}
 {% block main %}
     <h1>{{ poll }}<span>Results</span></h1>
-    <ul>
+    <ul class="entry">
         {% for question in poll.question_set.all %}
             <li class="question">
                 {{ question.text }}

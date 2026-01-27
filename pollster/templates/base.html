@@ -10,17 +10,18 @@
     <body>
         <header>
             <a id="logo" href="{% url 'home' %}">P<span></span>LLSTER</a>
+            <nav><a href="{% url 'polls:create_poll' %}">Create poll</a></nav>
         </header>
-        <main
-            class="
-                {{ request.resolver_match.app_name}}
-                {{ request.resolver_match.url_name }}
-            "
-        >
+        <main>
             <header>
                 <nav id="breadcrumbs">
                     <ul>
                         {% block breadcrumbs %}{% endblock %}
+                    </ul>
+                </nav>
+                <nav id="main-nav">
+                    <ul>
+                        {% block main_nav %}{% endblock %}
                     </ul>
                 </nav>
             </header>

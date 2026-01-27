@@ -1,5 +1,7 @@
 from pathlib import Path
 
+from django.forms.renderers import TemplatesSetting
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -8,7 +10,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-6dbyp9*_d&0f6(d(ox30u3cd(1sxtp&b!p%ef2df%pqmi&uq=*"
+SECRET_KEY = (
+    "django-insecure-6dbyp9*_d&0f6(d(ox30u3cd(1sxtp&b!p%ef2df%pqmi&uq=*"
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -19,6 +23,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "django.forms",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -57,6 +62,14 @@ TEMPLATES = [
         },
     },
 ]
+
+
+class CustomFormRenderer(TemplatesSetting):
+    form_template_name = "snippets/form.html"
+
+
+FORM_RENDERER = "pollster.settings.CustomFormRenderer"
+
 
 WSGI_APPLICATION = "pollster.wsgi.application"
 

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Add question | {{ poll.title }}{% endblock %}
+{% block breadcrumbs %}
+    <li><a href="{% url 'polls:index' %}">Polls</a></li>
+    <li><a href="{% url 'polls:entry' poll.id %}">{{ poll.title }}</a></li>
+    <li><a href="{% url 'polls:questions' poll.id %}">Questions</a></li>
+    <li>
+        <a href="{% url 'polls:create_question' poll.id %}">Add question</a>
+    </li>
+{% endblock %}
+{% block main %}
+    <h1>{{ poll.title }}<span>Add question</span></h1>
+    <form
+        method="post"
+        action="{% url 'polls:create_question_submit' poll.id %}"
+    >
+        {% csrf_token %}
+        {{ form }}
+        {{ choice_formset }}
+        <button
+            formaction="{% url 'polls:create_question_add_choice' poll.id %}"
+            formnovalidate
+        >
+            Add choice
+        </button>
+        <button>Save</button>
+    </form>
+{% endblock main %}
