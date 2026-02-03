@@ -166,8 +166,13 @@ def delete_question(request, poll_id: int, question_id: int):
 
 def entry(request, poll_id: int):
     """Show a form to respond to a poll."""
+
+    drafts = request.session.get("draft_entries")
+    draft = drafts.get(str(poll_id)) if drafts else None
+
     poll = models.Poll.objects.get(pk=poll_id)
-    return render(request, "polls/entry.html", {"poll": poll})
+    context = {"poll": poll, "draft": draft}
+    return render(request, "polls/entry.html", context)
 
 
 def entry_submit(request, poll_id: int):
@@ -185,7 +190,22 @@ def entry_submit(request, poll_id: int):
     return redirect("polls:results", poll_id=poll_id)
 
 
+def save_draft_entry(request, poll_id: int):
+    """Handle form to save a draft entry."""
+
+    draft = request.POST.copy()
+    del draft["csrfmiddlewaretoken"]
+    for question_id in draft:
+        draft[question_id] = int(draft[question_id])
+    request.session["draft_entries"] = {str(poll_id): draft}
+    request.session.modified = True
+
+    return redirect("polls:results", poll_id=poll_id)
+
+
 def results(request, poll_id: int):
     """Show results for a poll."""
+    print(request.session["test"])
     poll = get_object_or_404(models.Poll, pk=poll_id)
-    return render(request, "polls/results.html", {"poll": poll})
+    context = {"poll": poll}
+    return render(request, "polls/results.html", context)

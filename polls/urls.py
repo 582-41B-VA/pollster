@@ -86,6 +86,11 @@ urlpatterns = [
         name="entry_submit",
     ),
     path(
+        "<int:poll_id>/save-draft/",
+        views.save_draft_entry,
+        name="save_draft_entry",
+    ),
+    path(
         "<int:poll_id>/results/",
         views.results,
         name="results",

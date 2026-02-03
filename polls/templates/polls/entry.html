@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load poll_extras %}
 {% block title %}{{ poll }}{% endblock %}
 {% block breadcrumbs %}
     <li><a href="{% url 'polls:index' %}">Polls</a></li>
@@ -10,7 +11,7 @@
     <li><a href="{% url 'polls:delete_poll' poll.id %}">Delete</a></li>
 {% endblock %}
 {% block main %}
-    <h1>{{ poll }}<span>Answer poll</h1>
+    <h1>{{ poll }}<span>Answer poll</span></h1>
     <form
         method="post"
         action="{% url 'polls:entry_submit' poll.id %}"
@@ -28,6 +29,9 @@
                                 name="{{ question.id }}"
                                 value="{{ choice.id }}"
                                 required
+                                {% if draft|get:question.id == choice.id %}
+                                    checked
+                                {% endif %}
                             />
                             <span>{{ choice.text }}</span>
                         </label>
@@ -36,5 +40,11 @@
             </div>
         {% endfor %}
         <button>Submit</button>
+        <button
+            formnovalidate
+            formaction="{% url 'polls:save_draft_entry' poll.id %}"
+        >
+            Save draft
+        </button>
     </form>
 {% endblock main %}
