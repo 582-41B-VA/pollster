@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
+from django.contrib import messages
 
-from . import models, forms
+from . import forms, models, session
 
 
 def index(request):
@@ -166,10 +167,7 @@ def delete_question(request, poll_id: int, question_id: int):
 
 def entry(request, poll_id: int):
     """Show a form to respond to a poll."""
-
-    drafts = request.session.get("draft_entries")
-    draft = drafts.get(str(poll_id)) if drafts else None
-
+    draft = session.DraftStore(request.session).get(poll_id)
     poll = models.Poll.objects.get(pk=poll_id)
     context = {"poll": poll, "draft": draft}
     return render(request, "polls/entry.html", context)
@@ -187,25 +185,19 @@ def entry_submit(request, poll_id: int):
         selected_choice = models.Choice.objects.get(pk=selected_choice_id)
         answer = models.Answer(entry=entry, choice=selected_choice)
         answer.save()
+    session.DraftStore(request.session).delete(poll_id)
+    messages.success(request, "Your entry has been submitted.")
     return redirect("polls:results", poll_id=poll_id)
 
 
 def save_draft_entry(request, poll_id: int):
     """Handle form to save a draft entry."""
-
-    draft = request.POST.copy()
-    del draft["csrfmiddlewaretoken"]
-    for question_id in draft:
-        draft[question_id] = int(draft[question_id])
-    request.session["draft_entries"] = {str(poll_id): draft}
-    request.session.modified = True
-
+    session.DraftStore(request.session).add(request.POST, poll_id)
     return redirect("polls:results", poll_id=poll_id)
 
 
 def results(request, poll_id: int):
     """Show results for a poll."""
-    print(request.session["test"])
     poll = get_object_or_404(models.Poll, pk=poll_id)
     context = {"poll": poll}
     return render(request, "polls/results.html", context)
